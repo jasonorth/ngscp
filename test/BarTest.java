@@ -1,13 +1,9 @@
-import configs.AppConfig;
-import models.Bar;
-import org.junit.Test;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
-
 import static org.fest.assertions.Assertions.assertThat;
+import models.Bar;
 
-@ContextConfiguration(classes={AppConfig.class, TestDataConfig.class})
-public class BarTest extends AbstractTransactionalJUnit4SpringContextTests {
+import org.junit.Test;
+
+public class BarTest {
  
     @Test
     public void setBarName() {

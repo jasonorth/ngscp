@@ -1,15 +1,14 @@
 package configs;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.sql.DataSource;
-
-import play.Logger;
-import play.Play;
-import play.db.*;
+import play.db.DB;
 
 @Configuration
 @EnableTransactionManagement
@@ -20,4 +19,10 @@ public class DataConfig {
         return DB.getDataSource();
     }
 
+    @Bean
+    public PlatformTransactionManager transactionManager() {
+    	DataSourceTransactionManager tm = new DataSourceTransactionManager(dataSource());
+    	tm.setGlobalRollbackOnParticipationFailure(false);
+    	return tm;
+    }
 }

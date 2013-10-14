@@ -1,11 +1,11 @@
-import configs.DataConfig;
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import play.Logger;
-import play.db.*;
-import javax.sql.DataSource;
+
+import play.db.DB;
+import configs.DataConfig;
 
 @Configuration
 @EnableTransactionManagement
