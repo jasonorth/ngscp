@@ -1,13 +1,14 @@
 package services;
 
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import models.Bar;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import play.Logger;
-
-import java.util.List;
-import java.util.ArrayList;
 
 @Service
 @Transactional
@@ -17,6 +18,7 @@ public class BarServiceImpl implements BarService {
     
     @Override
     public void addBar(Bar bar) {
+    	bar.id = new Random().nextLong();
         bars.add(bar);
     }
 
